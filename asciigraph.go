@@ -58,7 +58,7 @@ func Plot(series []float64, options ...Option) string {
 		plot = append(plot, line)
 	}
 
-	precision := 2
+	precision := 3
 	logMaximum := math.Log10(math.Max(math.Abs(maximum), math.Abs(minimum))) //to find number of zeros after decimal
 
 	if logMaximum < 0 {
@@ -81,7 +81,7 @@ func Plot(series []float64, options ...Option) string {
 	for y := intmin2; y < intmax2+1; y++ {
 		var magnitude float64
 		if rows > 0 {
-			magnitude = maximum-(float64(y-intmin2)*interval/float64(rows))
+			magnitude = maximum - (float64(y-intmin2) * interval / float64(rows))
 		} else {
 			magnitude = float64(y)
 		}
